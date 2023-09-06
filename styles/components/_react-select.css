@@ -1,0 +1,7 @@
+.react-select-component__value-container input:focus {
+  box-shadow: none !important;
+}
+
+.react-select-component__indicators span.react-select-component__indicator-separator {
+  display: none;
+}

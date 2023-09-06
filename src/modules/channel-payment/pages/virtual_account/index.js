@@ -1,0 +1,1 @@
+export { default as VirtualAccount } from './list.page'

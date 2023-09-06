@@ -1,0 +1,34 @@
+.react-datepicker-popper {
+    z-index: 99 !important;
+}
+
+.react-datepicker__triangle {
+    left: 0 !important;
+    transform: translate3d(4px, 0px, 0px) !important;
+    width: 100% !important;
+}
+
+.react-datepicker__triangle::before,
+.react-datepicker__triangle::after {
+    left: 0px !important;
+    right: 0px !important;
+    margin-left: auto;
+    margin-right: auto;
+    @apply !border-b-primary;
+}
+
+.react-datepicker__header {
+    @apply !bg-primary;
+}
+
+.react-datepicker__navigation .react-datepicker__navigation-icon::before {
+    @apply border-dark;
+}
+
+.react-datepicker__navigation:hover *::before {
+    @apply !border-slate-500;
+}
+
+.react-datepicker__navigation-icon::before {
+    @apply top-0 bottom-0 my-auto;
+}

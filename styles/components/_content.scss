@@ -1,0 +1,17 @@
+.content {
+    @apply min-w-0 min-h-screen bg-gray-50 flex-1 px-6 pb-8 pt-10 shadow-sm;
+    margin-left: 85px;
+
+    @media (min-width: 1024px) {
+        @apply ml-64;
+    }
+
+    @media (max-width: 767px) {
+        @apply px-4 max-w-full;
+    }
+
+    &:before {
+        content: "";
+        @apply w-full h-px block;
+    }
+}

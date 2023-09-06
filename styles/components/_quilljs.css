@@ -1,0 +1,15 @@
+.quill {
+  .ql-toolbar.ql-snow {
+    background-color: theme("colors.slate.100");
+    border-radius: 0.375rem 0.375rem 0 0;
+    border: 1px solid theme("colors.slate.200");
+  }
+  .ql-container.ql-snow {
+    border-radius: 0 0 0.375rem 0.375rem;
+    border: 1px solid theme("colors.slate.200");
+
+    .ql-editor {
+      min-height: 150px;
+    }
+  }
+}

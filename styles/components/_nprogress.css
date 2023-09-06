@@ -1,0 +1,51 @@
+:root {
+  --color: #facc17;  
+}
+
+/* I made these changes in nprogress.css */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  height: 4px;
+  background: var(--color);
+  border-radius: 5px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--color), 0 0 5px var(--color);
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+
+  border: solid 4px transparent;
+  border-top-color: var(--color);
+  border-left-color: var(--color);
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+          animation: nprogress-spinner 400ms linear infinite;
+}

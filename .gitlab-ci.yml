@@ -1,0 +1,52 @@
+stages: 
+    - build
+    - run-app
+
+variables:
+  env: /home/gitlab-runner/environment
+  domain: staging-event.identix.events
+  pm2_home: /etc/pm2daemon
+
+stage-build-job:
+    stage: build
+    before_script:
+        - mkdir -p $env/$CI_PROJECT_NAME/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+    script:
+        - rm -rf .git/
+        - rm -rf $env/$CI_PROJECT_NAME/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME/*
+        - cp -r . $env/$CI_PROJECT_NAME/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+        - chown -R gitlab-runner:dev $env/$CI_PROJECT_NAME/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+        - rsync -avrc --delete --exclude .sequelizerc --exclude public/uploads --exclude .env $env/$CI_PROJECT_NAME/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME/ /var/www/ems-dev/fe-new/$domain
+        - cd /var/www/ems-dev/fe-new/$domain
+        - export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        - nvm alias default 16.15.0
+        - ls -hal
+        - npm -v
+        - npm install
+        - npm update
+        - npm run build
+    tags:
+        - ems-fe-new
+    only:
+        - main
+    except:
+        changes:
+        - "*.md"
+
+stage-run-app-job:
+    stage: run-app
+    script:
+        - cd /var/www/ems-dev/fe-new/$domain
+        - export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        - export PM2_HOME=$pm2_home
+        - nvm alias default 16.15.0
+        - ls -alh
+        - pm2 delete $domain
+        - pm2 start --time npm --name $domain -- start
+    tags:
+        - ems-fe-new
+    only:
+        - main
+    except:
+        changes:
+        - "*.md"

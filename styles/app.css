@@ -1,0 +1,35 @@
+@import url('./tailwind.css');
+@import url('./font.css');
+
+
+/* 3d Party Libraries */
+@import "toastify-js/src/toastify.css";
+@import "simplebar/dist/simplebar.css";
+@import "nprogress/nprogress.css";
+@import "tom-select/dist/css/tom-select.css";
+
+/*
+   |--------------------------------------------------------------------------
+   | Components
+   |--------------------------------------------------------------------------
+   |
+   | Import CSS components.
+   |
+*/
+@import url('./components/_image-fit.css');
+@import url('./globals.css');
+@import url('./components/_intro.css');
+@import url('./components/_box.css');
+@import url('./components/_nprogress.css');
+@import url('./components/_tom-select.css');
+@import url('./components/_react-select.css');
+@import url('./components/_ckeditor.css');
+@import url('./components/_grapesjs.css');
+@import url('./components/_quilljs.css');
+@import url('./components/_content.scss');
+@import url('./components/_wrapper.scss');
+@import url('./components/_side-nav.scss');
+@import url('./components/_table.css');
+@import url('./components/_datepicker.css');
+@import url('./components/_beautycheckbox.scss');
+@import url('./components/_sidetabbox.scss');

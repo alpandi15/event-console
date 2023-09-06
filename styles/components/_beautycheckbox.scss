@@ -1,0 +1,196 @@
+.beauty-checkbox {
+  @apply relative flex gap-2 items-center cursor-pointer;
+
+  input[type="checkbox"] {
+    @apply hidden;
+  }
+
+  span {
+    @apply text-sm cursor-pointer;
+  }
+
+  .box {
+    content: '';
+    @apply relative w-5 h-5 border border-gray-300 rounded transition-all cursor-pointer;
+
+    &::after {
+      content: '';
+      @apply absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto w-1 h-2 opacity-0 rotate-45 scale-0 transition-all delay-150 border-r-2 border-b-2 border-white;
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    &~.box {
+      @apply border-transparent bg-blue-500;
+      animation: jelly-42 0.6s ease;
+
+      &::after {
+        @apply opacity-100 rotate-45 scale-100;
+      }
+    }
+  }
+
+  &:has(input[type='checkbox']:checked) {
+    .box {
+      @apply border-transparent bg-blue-500;
+      animation: jelly-42 0.6s ease;
+
+      &::after {
+        @apply opacity-100 rotate-45 scale-100;
+      }
+    }
+  }
+}
+
+.beauty-radio {
+  @apply relative flex gap-2 items-center cursor-pointer;
+
+  input[type="radio"] {
+    @apply hidden;
+  }
+
+  span {
+    @apply text-sm cursor-pointer;
+  }
+
+  .box {
+    content: '';
+    @apply relative w-5 h-5 border border-gray-300 rounded-full transition-all cursor-pointer;
+
+    &::after {
+      content: '';
+      @apply absolute top-0 bottom-0 my-auto left-0 right-0 mx-auto w-1 h-2 opacity-0 rotate-45 scale-0 transition-all delay-150 border-r-2 border-b-2 border-white;
+    }
+  }
+
+  &:has(input[type='radio']:checked) {
+    .box {
+      @apply border-transparent bg-blue-500;
+      animation: jelly-42 0.6s ease;
+
+      &::after {
+        @apply opacity-100 rotate-45 scale-100;
+      }
+    }
+  }
+}
+
+@-moz-keyframes jelly-42 {
+  from {
+    transform: scale(1, 1);
+  }
+
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes jelly-42 {
+  from {
+    transform: scale(1, 1);
+  }
+
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@-o-keyframes jelly-42 {
+  from {
+    transform: scale(1, 1);
+  }
+
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes jelly-42 {
+  from {
+    transform: scale(1, 1);
+  }
+
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
